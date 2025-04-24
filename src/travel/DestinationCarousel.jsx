@@ -53,7 +53,7 @@ function DestinationCarousel() {
 
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 300; // Adjust scroll amount as needed
+      const scrollAmount = 300;
       scrollRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
@@ -124,15 +124,16 @@ function DestinationCarousel() {
               rel="noopener noreferrer"
               className="group flex-none w-64 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="relative h-40">
+              <div className="image-container image-sm">
                 <img
                   src={destination.image}
                   alt={destination.name}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
-                  <div className="absolute bottom-0 left-0 right-0 p-4">
-                    <h3 className="text-xl font-bold text-white">{destination.name}</h3>
+                <div className="image-overlay">
+                  <div className="image-overlay-content">
+                    <h3 className="text-xl font-bold">{destination.name}</h3>
                     <p className="text-white/90 text-sm">Book your flight now</p>
                   </div>
                 </div>

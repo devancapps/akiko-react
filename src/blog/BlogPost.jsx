@@ -2,11 +2,11 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useBlog } from '../context/BlogContext';
 import { marked } from 'marked';
-import SEO from '../components/SEO';
-import SubscribeForm from '../components/SubscribeForm';
+import SEO from '../layout/SEO';
+import SubscribeForm from '../ui/SubscribeForm';
 import { linkify } from '../utils/linkify';
-import LoadingSpinner from '../components/LoadingSpinner';
-import ErrorBoundary from '../components/ErrorBoundary';
+import LoadingSpinner from '../ui/LoadingSpinner';
+import ErrorBoundary from '../ui/ErrorBoundary';
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -88,11 +88,14 @@ const BlogPost = () => {
 
           {blog.image && (
             <div className="mb-8">
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="w-full h-auto rounded-lg"
-              />
+              <div className="image-container image-lg">
+                <img
+                  src={blog.image}
+                  alt={blog.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
           )}
 

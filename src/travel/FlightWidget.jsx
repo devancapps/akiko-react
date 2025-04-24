@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from '../ui/LoadingSpinner';
 
-const HotelWidget = () => {
+const FlightWidget = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [retryCount, setRetryCount] = useState(0);
@@ -16,7 +16,7 @@ const HotelWidget = () => {
       setError(null);
 
       script = document.createElement('script');
-      script.src = "https://c121.travelpayouts.com/content?trs=409664&shmarker=624965&lang=www&layout=S10391&powered_by=true&promo_id=4038";
+      script.src = "https://tp.media/content?trs=409664&shmarker=624965&locale=en&curr=USD&powered_by=true&border_radius=0&plain=true&color_button=%232681ff&color_button_text=%23ffffff&color_border=%232681ff&promo_id=4132&campaign_id=121";
       script.async = true;
       script.charset = "utf-8";
       
@@ -32,12 +32,12 @@ const HotelWidget = () => {
             loadScript();
           }, 1000 * Math.pow(2, retryCount)); // Exponential backoff
         } else {
-          setError('Failed to load hotel widget after multiple attempts');
+          setError('Failed to load flight widget after multiple attempts');
           setLoading(false);
         }
       };
 
-      const container = document.getElementById('hotel-widget-container');
+      const container = document.getElementById('flight-widget-container');
       if (container) {
         container.appendChild(script);
       }
@@ -57,8 +57,8 @@ const HotelWidget = () => {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold mb-4">Find Hotels</h2>
-      <div id="hotel-widget-container" className="min-h-[400px] relative">
+      <h2 className="text-2xl font-bold mb-4">Find Flights</h2>
+      <div id="flight-widget-container" className="min-h-[400px] relative">
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75">
             <LoadingSpinner />
@@ -85,4 +85,4 @@ const HotelWidget = () => {
   );
 };
 
-export default HotelWidget; 
+export default FlightWidget; 

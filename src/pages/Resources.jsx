@@ -1,5 +1,5 @@
 import React from 'react';
-import SEO from '../components/SEO';
+import SEO from '../layout/SEO';
 
 const resources = [
   {
@@ -98,11 +98,11 @@ function Resources() {
                     rel="noopener noreferrer"
                     className="group bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                   >
-                    <div className="relative h-48">
+                    <div className="relative h-40">
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
                         <div className="absolute bottom-0 left-0 right-0 p-6">

@@ -2,16 +2,16 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { BlogProvider } from './context/BlogContext';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-import LoadingSpinner from './components/LoadingSpinner';
-import ErrorBoundary from './components/ErrorBoundary';
+import Navbar from './layout/Navbar';
+import Footer from './layout/Footer';
+import ScrollToTop from './layout/ScrollToTop';
+import LoadingSpinner from './ui/LoadingSpinner';
+import ErrorBoundary from './ui/ErrorBoundary';
 
 // Lazy load pages
 const Home = lazy(() => import('./pages/Home'));
 const Blog = lazy(() => import('./pages/Blog'));
-const BlogPost = lazy(() => import('./pages/BlogPost'));
+const BlogPost = lazy(() => import('./blog/BlogPost'));
 const Resources = lazy(() => import('./pages/Resources'));
 
 const GlobalErrorBoundary = ({ children }) => {

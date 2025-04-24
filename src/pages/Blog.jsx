@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import { useBlog } from '../context/BlogContext';
-import BlogCard from '../components/BlogCard';
-import SEO from '../components/SEO';
-import LoadingSpinner from '../components/LoadingSpinner';
-import ErrorBoundary from '../components/ErrorBoundary';
+import BlogCard from '../blog/BlogCard';
+import SEO from '../layout/SEO';
+import LoadingSpinner from '../ui/LoadingSpinner';
+import ErrorBoundary from '../ui/ErrorBoundary';
 
 const Blog = () => {
   const { blogs, loading, refreshing, error, hasMore, refreshBlogs, loadMore } = useBlog();

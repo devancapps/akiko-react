@@ -61,15 +61,18 @@ function DestinationGrid() {
             rel="noopener noreferrer"
             className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
           >
-            <img
-              src={destination.image}
-              alt={destination.name}
-              className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-300"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="text-2xl font-bold text-white">{destination.name}</h3>
-                <p className="text-white/90 mt-2">Book your flight now</p>
+            <div className="image-container image-lg">
+              <img
+                src={destination.image}
+                alt={destination.name}
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+              <div className="image-overlay">
+                <div className="image-overlay-content">
+                  <h3 className="text-2xl font-bold">{destination.name}</h3>
+                  <p className="text-white/90 mt-2">Book your flight now</p>
+                </div>
               </div>
             </div>
           </a>

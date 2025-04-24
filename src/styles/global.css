@@ -19,14 +19,52 @@ body {
   @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
+/* Typography */
 .prose {
   @apply max-w-none;
 }
 
-.prose img {
-  @apply rounded-lg shadow-lg;
-}
-
 .prose a {
   @apply text-blue-600 hover:text-blue-800;
+}
+
+/* Image Styles */
+img {
+  @apply max-w-full h-auto;
+}
+
+/* Image Containers */
+.image-container {
+  @apply relative overflow-hidden rounded-lg;
+}
+
+.image-container img {
+  @apply w-full h-full object-cover;
+}
+
+/* Image Overlays */
+.image-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/70 to-transparent;
+}
+
+.image-overlay-content {
+  @apply absolute bottom-0 left-0 right-0 p-4 text-white;
+}
+
+/* Standard Image Heights */
+.image-sm {
+  @apply h-40;
+}
+
+.image-md {
+  @apply h-48;
+}
+
+.image-lg {
+  @apply h-56;
+}
+
+/* Prose Content Images */
+.prose img {
+  @apply rounded-lg shadow-lg my-4;
 } 

@@ -1,9 +1,9 @@
 import React from 'react';
-import SEO from '../components/SEO';
-import DestinationGrid from '../components/DestinationGrid';
-import FlightWidget from '../components/FlightWidget';
-import HotelWidget from '../components/HotelWidget';
-import SubscribeForm from '../components/SubscribeForm';
+import SEO from '../layout/SEO';
+import DestinationGrid from '../travel/DestinationGrid';
+import FlightWidget from '../travel/FlightWidget';
+import HotelWidget from '../travel/HotelWidget';
+import SubscribeForm from '../ui/SubscribeForm';
 
 function Home() {
   return (
@@ -16,12 +16,12 @@ function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative h-[80vh] flex items-center justify-center">
+      <section className="relative h-[60vh] flex items-center justify-center">
         <div className="absolute inset-0 bg-black/50 z-10" />
         <img
           src="https://images.pexels.com/photos/290386/pexels-photo-290386.jpeg"
           alt="Travel"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="container mx-auto px-4 relative z-20 text-center text-white">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
