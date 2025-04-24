@@ -4,47 +4,47 @@ const destinations = [
   {
     name: 'Tokyo',
     image: 'https://images.pexels.com/photos/2341830/pexels-photo-2341830.jpeg',
-    link: 'https://www.trip.com/flights/tokyo/tickets-tok.html?marker=624965'
+    link: 'https://tp.media/r?marker=409664&trs=624965&p=4132&u=https%3A%2F%2Fwww.trip.com%2Fflights%2Ftokyo%2Ftickets-tok.html'
   },
   {
     name: 'Paris',
     image: 'https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg',
-    link: 'https://www.trip.com/flights/paris/tickets-par.html?marker=624965'
+    link: 'https://tp.media/r?marker=409664&trs=624965&p=4132&u=https%3A%2F%2Fwww.trip.com%2Fflights%2Fparis%2Ftickets-par.html'
   },
   {
     name: 'New York',
     image: 'https://images.pexels.com/photos/290386/pexels-photo-290386.jpeg',
-    link: 'https://www.trip.com/flights/new-york/tickets-nyc.html?marker=624965'
+    link: 'https://tp.media/r?marker=409664&trs=624965&p=4132&u=https%3A%2F%2Fwww.trip.com%2Fflights%2Fnew-york%2Ftickets-nyc.html'
   },
   {
     name: 'Barcelona',
     image: 'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg',
-    link: 'https://www.trip.com/flights/barcelona/tickets-bcn.html?marker=624965'
+    link: 'https://tp.media/r?marker=409664&trs=624965&p=4132&u=https%3A%2F%2Fwww.trip.com%2Fflights%2Fbarcelona%2Ftickets-bcn.html'
   },
   {
     name: 'Sydney',
     image: 'https://images.pexels.com/photos/1005417/pexels-photo-1005417.jpeg',
-    link: 'https://www.trip.com/flights/sydney/tickets-syd.html?marker=624965'
+    link: 'https://tp.media/r?marker=409664&trs=624965&p=4132&u=https%3A%2F%2Fwww.trip.com%2Fflights%2Fsydney%2Ftickets-syd.html'
   },
   {
     name: 'Dubai',
     image: 'https://images.pexels.com/photos/1510595/pexels-photo-1510595.jpeg',
-    link: 'https://www.trip.com/flights/dubai/tickets-dxb.html?marker=624965'
+    link: 'https://tp.media/r?marker=409664&trs=624965&p=4132&u=https%3A%2F%2Fwww.trip.com%2Fflights%2Fdubai%2Ftickets-dxb.html'
   },
   {
     name: 'Rome',
     image: 'https://images.pexels.com/photos/3722818/pexels-photo-3722818.jpeg',
-    link: 'https://www.trip.com/flights/rome/tickets-rom.html?marker=624965'
+    link: 'https://tp.media/r?marker=409664&trs=624965&p=4132&u=https%3A%2F%2Fwww.trip.com%2Fflights%2Frome%2Ftickets-rom.html'
   },
   {
     name: 'Bangkok',
     image: 'https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg',
-    link: 'https://www.trip.com/flights/bangkok/tickets-bkk.html?marker=624965'
+    link: 'https://tp.media/r?marker=409664&trs=624965&p=4132&u=https%3A%2F%2Fwww.trip.com%2Fflights%2Fbangkok%2Ftickets-bkk.html'
   },
   {
     name: 'Singapore',
     image: 'https://images.pexels.com/photos/3152126/pexels-photo-3152126.jpeg',
-    link: 'https://www.trip.com/flights/singapore/tickets-sin.html?marker=624965'
+    link: 'https://tp.media/r?marker=409664&trs=624965&p=4132&u=https%3A%2F%2Fwww.trip.com%2Fflights%2Fsingapore%2Ftickets-sin.html'
   }
 ];
 

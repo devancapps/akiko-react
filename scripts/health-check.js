@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
+const https = require('https');
+const { exec } = require('child_process');
 
 const BLOGS_DIR = path.join(__dirname, '../src/blogs');
 const BLOGS_JSON = path.join(__dirname, '../src/data/blogs.json');
@@ -68,5 +70,84 @@ async function checkBlogFiles() {
   }
 }
 
+const checkDeployment = () => {
+  return new Promise((resolve, reject) => {
+    const options = {
+      hostname: 'akiko.dev',
+      port: 443,
+      path: '/',
+      method: 'GET',
+      timeout: 5000
+    };
+
+    const req = https.request(options, (res) => {
+      if (res.statusCode === 200) {
+        resolve(true);
+      } else {
+        reject(new Error(`Status code: ${res.statusCode}`));
+      }
+    });
+
+    req.on('error', (error) => {
+      reject(error);
+    });
+
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error('Request timeout'));
+    });
+
+    req.end();
+  });
+};
+
+const checkBuild = () => {
+  return new Promise((resolve, reject) => {
+    exec('npm run build', (error, stdout, stderr) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(true);
+      }
+    });
+  });
+};
+
+const checkTests = () => {
+  return new Promise((resolve, reject) => {
+    exec('npm test', (error, stdout, stderr) => {
+      if (error) {
+        reject(error);
+      } else {
+        resolve(true);
+      }
+    });
+  });
+};
+
+async function runHealthCheck() {
+  try {
+    console.log('Running health checks...');
+    
+    console.log('Checking build...');
+    await checkBuild();
+    console.log('Build check passed');
+    
+    console.log('Checking tests...');
+    await checkTests();
+    console.log('Tests check passed');
+    
+    console.log('Checking deployment...');
+    await checkDeployment();
+    console.log('Deployment check passed');
+    
+    console.log('All health checks passed!');
+    process.exit(0);
+  } catch (error) {
+    console.error('Health check failed:', error);
+    process.exit(1);
+  }
+}
+
 // Run the health check
-checkBlogFiles(); 
+runHealthCheck(); 
