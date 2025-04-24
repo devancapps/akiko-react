@@ -11,8 +11,25 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Ensure directories exist
+const blogsDir = path.join(__dirname, '../src/blogs');
+const dataDir = path.join(__dirname, '../src/data');
+const blogsPath = path.join(dataDir, 'blogs.json');
+
+// Create directories if they don't exist
+if (!fs.existsSync(blogsDir)) {
+  fs.mkdirSync(blogsDir, { recursive: true });
+}
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
+
+// Initialize blogs.json if it doesn't exist
+if (!fs.existsSync(blogsPath)) {
+  fs.writeFileSync(blogsPath, JSON.stringify([], null, 2));
+}
+
 // Load existing blogs
-const blogsPath = path.join(__dirname, '../src/data/blogs.json');
 const blogs = JSON.parse(fs.readFileSync(blogsPath, 'utf8'));
 
 async function generateBlog() {
@@ -66,7 +83,13 @@ async function generateBlog() {
 
     // Generate slug and create blog post
     const slug = slugify(topic);
-    const blogPath = path.join(__dirname, `../src/blogs/${slug}.md`);
+    const blogPath = path.join(blogsDir, `${slug}.md`);
+    
+    // Check if blog already exists
+    if (fs.existsSync(blogPath)) {
+      console.log(`Blog with slug ${slug} already exists. Skipping...`);
+      return null;
+    }
     
     // Extract excerpt (first paragraph)
     const excerpt = content.split('\n\n')[0];

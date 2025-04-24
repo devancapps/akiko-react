@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 const BlogContext = createContext();
 const POSTS_PER_PAGE = 9;
@@ -20,7 +20,7 @@ export const BlogProvider = ({ children }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  const fetchBlogs = async (isRefresh = false) => {
+  const fetchBlogs = useCallback(async (isRefresh = false) => {
     try {
       if (isRefresh) {
         setRefreshing(true);
@@ -77,11 +77,11 @@ export const BlogProvider = ({ children }) => {
         setLoading(false);
       }
     }
-  };
+  }, [retryCount]);
 
   useEffect(() => {
     fetchBlogs();
-  }, []);
+  }, [fetchBlogs]);
 
   const getBlogBySlug = (slug) => {
     return blogs.find(blog => blog.slug === slug);
